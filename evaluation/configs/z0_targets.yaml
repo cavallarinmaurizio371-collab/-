@@ -1,0 +1,31 @@
+# A4 portrait target: 210 mm wide x 297 mm high. The camera lens is at its
+# physical centre. Targets leave about 25 mm horizontal and 28.5 mm vertical
+# margins. Evaluation axes: +X is the user's physical right while facing the
+# computer; +Y is physical up. Values are millimetres, not image pixels.
+LEFT_UP:
+  x_mm: -80
+  y_mm: 120
+UP:
+  x_mm: 0
+  y_mm: 120
+RIGHT_UP:
+  x_mm: 80
+  y_mm: 120
+LEFT:
+  x_mm: -80
+  y_mm: 0
+CENTER:
+  x_mm: 0
+  y_mm: 0
+RIGHT:
+  x_mm: 80
+  y_mm: 0
+LEFT_DOWN:
+  x_mm: -80
+  y_mm: -120
+DOWN:
+  x_mm: 0
+  y_mm: -120
+RIGHT_DOWN:
+  x_mm: 80
+  y_mm: -120

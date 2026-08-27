@@ -1,0 +1,12 @@
+{
+  "fx": 554.2563,
+  "fy": 554.2563,
+  "cx": 320.0,
+  "cy": 240.0,
+  "distortion": [0.0, 0.0, 0.0, 0.0, 0.0],
+  "image_width": 640,
+  "image_height": 480,
+  "valid_calibration": false,
+  "mode": "APPROXIMATE_INTRINSICS"
+}
+

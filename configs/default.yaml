@@ -1,0 +1,36 @@
+camera:
+  index: 0
+  width: 1280
+  height: 720
+  fps: 30
+  intrinsics: configs/camera_intrinsics.json
+hand:
+  max_hands: 1
+  detection_confidence: 0.55
+  tracking_confidence: 0.55
+  landmark_ema_alpha: 0.55
+detection:
+  confidence: 0.38
+  max_cups: 6
+  tracker_distance_px: 150
+  track_ttl_frames: 20
+depth:
+  backend: auto
+  model_id: depth-anything/Depth-Anything-V2-Metric-Indoor-Small-hf
+  calibration_file: configs/depth_calibration.json
+  patch_size: 7
+  bbox_inner_ratio: 0.5
+  fallback_depth_m: 0.80
+  ema_alpha: 0.35
+target_selection:
+  weight_2d: 0.68
+  weight_3d: 0.32
+  max_score: 1.0
+  max_2d_distance_px: 180
+  max_3d_distance_m: 0.35
+  switch_confirm_frames: 4
+  release_frames: 3
+visualization:
+  ray_length_px: 900
+  show_depth_preview: false
+

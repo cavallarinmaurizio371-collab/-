@@ -1,0 +1,52 @@
+intrinsics:
+  calibrated_file: configs/camera_intrinsics_phase2a.json
+  required_mode: CALIBRATED_INTRINSICS
+  required_width: 1280
+  required_height: 720
+  calibration_id: phase2a_20260826
+
+core_config: configs/phase2_3d_pointing.yaml
+targets_file: evaluation/configs/z0_targets.yaml
+
+formal:
+  direction_mode: parallel
+  depth_backend: metric
+  distance_cm: 70
+  prepare_seconds: 2.0
+  collect_seconds: 3.0
+  minimum_valid_frames: 3
+  mirror_display: true
+  intersection_epsilon: 0.000001
+  target_width_mm: 210.0
+  target_height_mm: 297.0
+
+smoke:
+  targets: [CENTER, LEFT, RIGHT, UP, DOWN]
+  trials_per_target: 3
+
+diagnostic:
+  targets: [CENTER, LEFT, RIGHT, UP, DOWN]
+  trials_per_target: 1
+
+full:
+  targets: [LEFT_UP, UP, RIGHT_UP, LEFT, CENTER, RIGHT, LEFT_DOWN, DOWN, RIGHT_DOWN]
+  trials_per_target: 5
+
+hand_position:
+  target: CENTER
+  positions: [LEFT, CENTER, RIGHT, UP, DOWN]
+  trials_per_position: 5
+
+distance_generalization:
+  distances_cm: [50, 70, 90]
+  targets: [CENTER, LEFT_UP, RIGHT_UP, LEFT_DOWN, RIGHT_DOWN]
+  trials_per_target: 3
+
+quality_fallback:
+  c_accepted_quality: [GOOD]
+  b_accepted_quality: [GOOD]
+
+excluded_sessions:
+  - session_20260826_190513_243892
+
+output_root: reports/3d_pointing_phase2b

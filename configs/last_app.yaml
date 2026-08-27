@@ -1,0 +1,88 @@
+intrinsics:
+  calibrated_file: configs/camera_intrinsics_phase2a.json
+  required_width: 1280
+  required_height: 720
+orientation:
+  current:
+    max_reprojection_rmse_px: 25.0
+  ransac:
+    iterations_count: 100
+    reprojection_error_px: 8.0
+    confidence: 0.99
+    minimum_inliers: 8
+    minimum_inlier_rate: 0.45
+    max_reprojection_rmse_px: 25.0
+  palm_stable:
+    landmark_indices: [0, 1, 2, 5, 9, 13, 17]
+    iterations_count: 100
+    reprojection_error_px: 8.0
+    confidence: 0.99
+    minimum_inliers: 5
+    minimum_inlier_rate: 0.60
+    max_reprojection_rmse_px: 20.0
+  selection:
+    max_projection_agreement_deg: 35.0
+    max_rotation_jump_deg: 30.0
+    priority: [R_PALM_STABLE, R21_RANSAC, R21_CURRENT]
+axis:
+  minimum_linearity: 0.70
+  max_residual_m: 0.012
+direction_temporal:
+  enabled: true
+  ema_alpha: 0.35
+  max_angle_jump_deg: 20.0
+anchor:
+  landmark_index: 9
+  sample_landmark_indices: [0, 5, 9, 13, 17]
+  patch_size: 7
+  minimum_valid_samples: 3
+  max_depth_mad_m: 0.04
+  lower_percentile: 10
+  upper_percentile: 90
+  outlier_mad_scale: 3.5
+anchor_temporal:
+  enabled: true
+  ema_alpha: 0.30
+  max_jump_m: 0.10
+  max_invalid_frames: 5
+gesture_temporal:
+  confirm_frames: 2
+  hold_frames: 3
+coarse_region:
+  center_half_angle_x_deg: 4.0
+  center_half_angle_y_deg: 4.0
+  intersection_epsilon: 0.000001
+  window_size: 7
+  min_stable_frames: 4
+  hold_frames: 6
+  max_jitter_deg: 3.5
+object_detection:
+  enabled: true
+  # List specific COCO names, use ALL for all supported classes, or [] to
+  # disable object detection/selection while keeping Hand + Spatial active.
+  target_classes: [bottle, cup, cell phone, book]
+  use_all_supported_classes: false
+  excluded_classes: [person]
+  confidence_threshold: 0.35
+  max_objects: 12
+  tracker_distance_px: 150
+  track_ttl_frames: 20
+object_depth:
+  bbox_inner_ratio: 0.50
+  ema_alpha: 0.35
+  lower_percentile: 10
+  upper_percentile: 90
+  outlier_mad_scale: 3.5
+selection:
+  base_max_angle_deg: 8.0
+  max_perpendicular_distance_m: 0.35
+  minimum_confidence: 0.38
+  angular_weight: 0.65
+  perpendicular_weight: 0.25
+  confidence_weight: 0.10
+  bbox_tolerance_scale: 1.0
+  switch_confirm_frames: 3
+  release_frames: 3
+display:
+  mirror: true
+  debug: false

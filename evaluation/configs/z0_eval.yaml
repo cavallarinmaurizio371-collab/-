@@ -1,0 +1,50 @@
+camera:
+  use_project_default: true
+depth:
+  backend: auto
+prepare_seconds: 2.0
+collect_seconds: 3.0
+test_distances_cm:
+  - 50
+  - 70
+  - 90
+default_distance_cm: 70
+hand_positions:
+  - LEFT
+  - CENTER
+  - RIGHT
+  - UP
+  - DOWN
+default_hand_position: CENTER
+mirror_display: true
+intersection_epsilon: 0.000001
+minimum_valid_frames: 3
+target_plane:
+  name: A4_CAMERA_CENTERED
+  width_mm: 210.0
+  height_mm: 297.0
+direction_quality:
+  minimum_direction_norm_m: 0.005
+  near_parallel_abs_dz: 0.15
+  good_min_toward_abs_dz: 0.55
+  depth_order_tolerance_m: 0.005
+  good_angle_std_deg: 8.0
+  marginal_angle_std_deg: 15.0
+  minimum_pointing_frame_rate: 0.5
+  minimum_depth_order_consistency: 0.6
+stability:
+  keypoint_pixel_std_threshold: 18.0
+  keypoint_xyz_std_m_threshold: 0.08
+  direction_angle_std_deg_threshold: 12.0
+  hit_radial_std_mm_threshold: 80.0
+evaluation_modes:
+  quick:
+    distances_cm: [70]
+    targets: [CENTER, LEFT, RIGHT, UP, DOWN]
+    trials_per_target: 3
+  full:
+    distances_cm: [50, 70, 90]
+    targets: [LEFT_UP, UP, RIGHT_UP, LEFT, CENTER, RIGHT, LEFT_DOWN, DOWN, RIGHT_DOWN]
+    trials_per_target: 5
+output_root: outputs/z0_eval
+targets_file: evaluation/configs/z0_targets.yaml
